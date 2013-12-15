@@ -38,6 +38,11 @@ CREATE COLUMNFAMILY StatusUpdates (
 ```
 	
 # 2: XML language
+
+## Language Definition
+- This model is general enough to represent any system that manages profiles with a picture, posts that can contain pictures, and friends or connections to other users with profiles.
+- This model supports the `newPost` operation which allows a user to create a new post, and the `suggestedFriends` operation which suggests new connections for users based on the friends of their friends.
+
 ``` xml
 <?xml version="1.0"?>
 <profile>
