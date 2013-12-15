@@ -83,3 +83,46 @@ CREATE COLUMNFAMILY StatusUpdates (
 	</suggestedFriends>
 </profile>
 ```
+
+## XML Schema
+
+``` xml
+<?xml version="1.0"? encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="photo" type="xs:string"/>
+	<xs:element name="source" type="xs:string"/>
+	<xs:element name="tag" type="xs:string"/>
+	<xs:element name="time" type="xs:dateTime"/>
+	<xs:element name="location" type="xs:string"/>
+	<xs:element name="body" type="xs:string"/>
+	<xs:element name="link" type="xs:string"/>
+	<xs:element name="userID" type="xs:string"/>
+
+	<xs:element name="tags">
+		<xs:complexType>
+			<xs:list ref="tag"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="post">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="time"/>
+				<xs:element ref="location"/>
+				<xs:list ref="tag"/>
+				<xs:element ref="photo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="friends">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:list ref="userID"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+```
+
+## 3:
