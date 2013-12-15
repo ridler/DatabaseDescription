@@ -123,6 +123,8 @@ CREATE COLUMNFAMILY StatusUpdates (
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
+
+</xs:schema>
 ```
 
 ## 3:
