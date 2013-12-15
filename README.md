@@ -12,6 +12,10 @@
 ## Column families:
 -	Notes: the bold words are keys.  All values have a timestamp that is not shown for simplicity.
 
+![](img/users)
+![](img/friends_with)
+![](img/status_updates)
+
 ## CQL queries
 ``` SQL
 INSERT INTO users (name, password, location)
