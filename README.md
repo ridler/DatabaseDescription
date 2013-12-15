@@ -148,9 +148,9 @@ PK FK    | PK FK    |
 
 Table: posts
 
-userID   | body     |
----------|----------|
-PK       |          |
+userID   | body     | time   |
+---------|----------|--------|
+PK       |          |        |
 
 - Functional Dependencies:
 - Multivalued Dependencies:
@@ -163,12 +163,15 @@ Create a new user and automatically make them friends with the original user (My
 INSERT INTO users (name, email, password, location)
 VALUES ("Kanye West", "ye@thebomb.com", "yeezus", "Chicago, IL");
 
-INSERT INTO  friends VALUES (1, 2);
+INSERT INTO friends VALUES (1, 2);
 ```
-A user can add all people as freinds who are friends of their friends who live in Santa Barbara, CA:
+A user can add all people as freinds who live in Santa Barbara, CA and who have created a post in the last month:
 
 ``` SQL
-SELECT name
-FROM users JOIN friends
-ON users.userID = friendID
+INSERT INTO friends VALUES (1, 
+	SELECT userID
+	FROM users u JOIN posts p
+		ON u.userID = p.userID
+	WHERE u.location = "Santa Barbara, CA" AND p.time > "12/1/2013"
+);
 ```
