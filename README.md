@@ -11,6 +11,16 @@
 
 ## Column families:
 -	Notes: the bold words are keys.  All values have a timestamp that is not shown for simplicity.
+users				
+| **taggr** | name | password | email | location |
+------------|------|----------|-------|----------|
+|	    | Tagg Ridler | batman11 | tagg@yahoo.com | Boulder,CO |
+| **mileyc** | name | password | location | |
+| 	     | Miley Cyrus | cantstop | Hollywood, CA | |	
+| **baracko** | name | password | email | |
+| 	      | Barack Obama | potus | bo@whitehouse.gov | |
+
+
 
 ## CQL queries
 ``` SQL
