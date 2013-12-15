@@ -43,6 +43,12 @@ CREATE COLUMNFAMILY StatusUpdates (
 <profile>
 	<name></name>
 	<profilePhoto></profilePhoto>
+	<newPost>
+		<source></source>
+		<tagBox></tagBox>
+		<inputText></inputText>
+		<inputPhoto></inputPhoto>
+	</newPost>
 	<posts>
 		<post>
 			<time></time>
@@ -63,5 +69,12 @@ CREATE COLUMNFAMILY StatusUpdates (
 			<link></link>
 		</friend>
 	</friends>
+	<suggestedFriends>
+		<source></source>
+		<inputFriends>
+			<friendID></friendID>
+		</inputFriends>
+		<userID></userID>
+	</suggestedFriends>
 </profile>
 ```
