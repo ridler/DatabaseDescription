@@ -15,11 +15,11 @@
 ## CQL queries
 ``` SQL
 INSERT INTO users (name, password, location)
-VALUES (Lana Del Rey, tropico, Cony Island, NY)
+VALUES ("Lana Del Rey", "tropico", "Cony Island, NY")
 
 SELECT COUNT (*)
 FROM users
-WHERE location = ‘Hollywood, CA’
+WHERE location = "Hollywood, CA"
 
 CREATE COLUMNFAMILY Users (
 	KEY uuid PRIMARY KEY,
@@ -34,7 +34,7 @@ CREATE COLUMNFAMILY StatusUpdates (
 	KEY uuid PRIMARY KEY,
 	body text,
 	tags text,
-	photo blob);
+	photo blob );
 ```
 	
 # 2: XML language
@@ -99,7 +99,8 @@ CREATE COLUMNFAMILY StatusUpdates (
 	<xs:element name="location" type="xs:string"/>
 	<xs:element name="body" type="xs:string"/>
 	<xs:element name="link" type="xs:string"/>
-	<xs:element name="userID" type="xs:string"/>
+	<xs:element name="userID" type="xs:int"/>
+	<xs:element name ="friendID" type="xs:int"/>
 
 	<xs:element name="tags">
 		<xs:complexType>
@@ -121,7 +122,7 @@ CREATE COLUMNFAMILY StatusUpdates (
 	<xs:element name="friends">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:list ref="userID"/>
+				<xs:list ref="friendID"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -129,4 +130,27 @@ CREATE COLUMNFAMILY StatusUpdates (
 </xs:schema>
 ```
 
-## 3:
+# 3: OLAP and Relational DB
+
+## Relational Schema
+
+Table: users
+
+userID   | name        | email      | password     | location   |
+---------|-------------|------------|--------------|------------|
+PK       |             |            |              |            |
+
+Table: friends
+
+userID   | friendID |
+---------|----------|
+PK FK    | PK FK    |
+
+Table: posts
+
+userID   | body     |
+---------|----------|
+PK       |          |
+
+- Functional Dependencies:
+- Multivalued Dependencies:
