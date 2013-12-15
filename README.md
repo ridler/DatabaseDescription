@@ -12,9 +12,11 @@
 ## Column families:
 -	Notes: the bold words are keys.  All values have a timestamp that is not shown for simplicity.
 
-![](img/users)
-![](img/friends_with)
-![](img/status_updates)
+![](img/users.PNG)
+
+![](img/friends_with.PNG)
+
+![](img/status_updates.PNG)
 
 ## CQL queries
 ``` SQL
@@ -169,13 +171,15 @@ VALUES ("Kanye West", "ye@thebomb.com", "yeezus", "Chicago, IL");
 
 INSERT INTO friends VALUES (1, 2);
 ```
-A user can add all people as freinds who live in Santa Barbara, CA and who have created a post in the last month:
+A user can add the person as a freind who lives in Santa Barbara, CA with the most recent post:
 
 ``` SQL
 INSERT INTO friends VALUES (1, 
+(
 	SELECT userID
 	FROM users u JOIN posts p
 		ON u.userID = p.userID
-	WHERE u.location = "Santa Barbara, CA" AND p.time > "12/1/2013"
-);
+	WHERE u.location = "Santa Barbara, CA"
+	ORDERY BY p.time LIMIT 1
+));
 ```
