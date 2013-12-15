@@ -154,3 +154,21 @@ PK       |          |
 
 - Functional Dependencies:
 - Multivalued Dependencies:
+
+## OLTP Queries
+
+Create a new user and automatically make them friends with the original user (MySpace model):
+
+``` SQL
+INSERT INTO users (name, email, password, location)
+VALUES ("Kanye West", "ye@thebomb.com", "yeezus", "Chicago, IL");
+
+INSERT INTO  friends VALUES (1, 2);
+```
+A user can add all people as freinds who are friends of their friends who live in Santa Barbara, CA:
+
+``` SQL
+SELECT name
+FROM users JOIN friends
+ON users.userID = friendID
+```
