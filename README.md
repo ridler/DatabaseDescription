@@ -183,3 +183,25 @@ INSERT INTO friends VALUES (1,
 	ORDERY BY p.time LIMIT 1
 ));
 ```
+
+# 6. Ambient Intelligence
+
+Last summer, I went to Italy and had to ride a lot of trains.  I'm going to describe a higher-tech ticketing system than the one they currently have, in the same train stations that I visited.
+
+## Description of System
+
+- This system would be located in a train station
+- The first part of the system would be touch-screen ticketing kiosks.  The user would purchase their ticket from at this kiosk and their thumbprint would be scanned, as a means of storing their identity.  The second part of the system would be a thumbprint reader on the actual train, which users would have to use in order to validate their ticket and board the train.
+- The system adapts to a diverse population by requiring a standardized set of information to purchase a ticket.  Everyone who wants to use this system should have a means of purchasing a train ticket.  If a user did not have thumbprints, a backup identification method such as loading their identity into the system from a credit card should be possible, but I'm not going to worry about such a case for this example.
+- The hardware involved would be thumbprint readers, credit card scanners, touch-screen computers, and web servers.
+
+## Web Connectivity
+
+- A web connection would be valuable to the users because the system could then email them reciepts or iteneraries.
+- Users could also have the option of buying a ticket on a web-connected, fingerprint-enabled devise such as an iPhone 5S, and not have to go early to the station to use the kiosks.
+- A web connection would be valuable to the implementers because it could provide information about the customers, which could lead to information helpful for marketing or other analytical purposes.
+- A connection to the system's servers that host information about routes, available tickets, and purchases is necessary for the system's basic functions.
+
+## Appropriate Database
+
+The best database to back this system would be a relational database system such as MySQL.  This system's primary purpose is transactions, so the locks and various levels of transaction protocalls that MySQL supports would be necessary.  One transaction would be when a user purchases a ticket.  This would need to be stored in the database without any uncertanty that the row(s) were written.  The other transaction would be when a user checks in to the actual train.  This transaction would require less certainty and more speed than purchases, so a lower isolation level should be used.  Since there is not much else going on other than transactions, other types of databases would not be as valuable for this system.
