@@ -119,7 +119,7 @@ CREATE COLUMNFAMILY StatusUpdates (
 			<xs:sequence>
 				<xs:element ref="time"/>
 				<xs:element ref="location"/>
-				<xs:list ref="tag"/>
+				<xs:element ref="tags"/>
 				<xs:element ref="photo"/>
 			</xs:sequence>
 		</xs:complexType>
