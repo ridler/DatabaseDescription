@@ -208,11 +208,11 @@ The best database to back this system would be a relational database system such
 
 # 7: Comparisons
 
-| Database Name | Structure       | "Query" Method          | Transactions                 | Focus |
-|---------------|-----------------|-------------------------|------------------------------|-------|
-| Neo4J         | Graph           | Cypher Query Language   | full ACID support            |       |
-| Mongo         | BSON/Document   | MongoDB CRUD Operations | Nested Documents             |       |
-| MySQL         | Tables          | SQL                     | full rollback / ACID support |       |
-| Cassandra     | Column Families | CQL                     | 3rd Party additions required |       |
-| Hbase         | Colums          | Map-Reduce/Hadoop       | mostly ACID support (locks)  |       |
+| Database Name | Structure       | "Query" Method          | Transactions                 | Focus                                              |
+|---------------|-----------------|-------------------------|------------------------------|----------------------------------------------------|
+| Neo4J         | Graph           | Cypher Query Language   | full ACID support            | ease for common graph-like data                    |
+| Mongo         | BSON/Document   | MongoDB CRUD Operations | Nested Documents             | large-scale document storage                       |
+| MySQL         | Tables          | SQL                     | full rollback / ACID support | transactions, routine querying                     |
+| Cassandra     | Column Families | CQL                     | 3rd Party additions required | Big Data, masterless decentralization, scalability |
+| Hbase         | Colums          | Map-Reduce/Hadoop       | mostly ACID support (locks)  | scalability, clusters, big data                    |
 
