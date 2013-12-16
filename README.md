@@ -184,7 +184,7 @@ INSERT INTO friends VALUES (1,
 ));
 ```
 
-# 6. Ambient Intelligence
+# 6: Ambient Intelligence
 
 Last summer, I went to Italy and had to ride a lot of trains.  I'm going to describe a higher-tech ticketing system than the one they currently have, in the same train stations that I visited.
 
@@ -205,3 +205,14 @@ Last summer, I went to Italy and had to ride a lot of trains.  I'm going to desc
 ## Appropriate Database
 
 The best database to back this system would be a relational database system such as MySQL.  This system's primary purpose is transactions, so the locks and various levels of transaction protocalls that MySQL supports would be necessary.  One transaction would be when a user purchases a ticket.  This would need to be stored in the database without any uncertanty that the row(s) were written.  The other transaction would be when a user checks in to the actual train.  This transaction would require less certainty and more speed than purchases, so a lower isolation level should be used.  Since there is not much else going on other than transactions, other types of databases would not be as valuable for this system.
+
+# 7: Comparisons
+
+| Database Name | | | | |
+|---------------|-|-|-|-|
+| Neo4J         | | | | |
+| Mongo         | | | | |
+| MySQL         | | | | |
+| Cassandra     | | | | |
+| Hbase         | | | | |
+
