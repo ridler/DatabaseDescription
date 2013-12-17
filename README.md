@@ -203,7 +203,8 @@ INSERT INTO friends VALUES (1,
 
 ## Data Warehousing
 
-**New Schema to make this work** (I am adding a page table, in reference to facebook pages vs profiles)
+### Schemas
+**New relational schema to make this work** (I am adding a page table, in reference to facebook pages vs profiles)
 
 <table>
 <tr>
@@ -249,7 +250,41 @@ INSERT INTO friends VALUES (1,
 </tr>
 </table>
 
+**Star Schema:** for explaination of how it relates to the above schema, see below.
+
 ![](img/starSchema.PNG)
+
+### Queries for Trends over Time
+
+- Summarizes "sales" over time by state
+
+``` SQL
+SELECT dateID, state, SUM(totalSold)
+FROM fact_profiles_created
+GROUP BY state, dateID
+```
+
+- Summarizes "sales" of certain product type over time by state
+
+``` SQL
+SELECT product, dateID, state, SUM(totalSold)
+FROM fact_profiles_created
+GROUP BY product, dateID, state
+```
+
+- Summarizes "sales" by product type over a particular month in California
+
+``` SQL
+SELECT product, SUM(totalSold)
+FROM fact_profiles_created f NATURAL JOIN date d
+WHERE d.month = 8 AND f.state = "CA"
+GROUP BY product
+```
+
+### Explaination of My Data Warehousing
+
+- The sales table in the star schema is aggregating the number of times a new profile or page was created in the application.  The state table is storing the information related to the location of the profiles or pages that were created, while the product table is storing whether the thing created was a profile or a page.  The date table is keeping track of the timestamp representing the time of creation of a profile or page.
+- The aggregation descibed above is done so summary queries can be written to analyze the data relating to the usage of the facebook-like app, and reveal trends over time.  This process is very different from online transaction processing (OLTP) because its only purpose is data analysis.  The data warehousing system should not modify records in the OLTP system in any way; it should only analyze them.  Relatively, the OLTP system should not be used to analyze any of its own data; it should only create, read, update, or delete it.
 
 # 4: Assertions and Inferences
 
