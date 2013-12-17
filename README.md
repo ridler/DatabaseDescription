@@ -370,6 +370,83 @@ GROUP BY product
 
 # 5: Distributed Databases
 
+## Schemas
+
+### Original Profile Schema
+
+<table>
+<tr>
+
+<td>
+<table>
+<tr><th> users </th></tr>
+<tr><td> userID <b>PK</b> </td></tr>
+<tr><td> name </td></tr>
+<tr><td> email </td></tr>
+<tr><td> password </td></tr>
+<tr><td> location</td></tr>
+<tr><td> time </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> friends </th></tr>
+<tr><td> userID <b>PK</b> </td></tr>
+<tr><td> friendID <b>PK FK</b> </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> posts </th></tr>
+<tr><td> userID <b>PK FK</b> </td></tr>
+<tr><td> body </td></tr>
+<tr><td> time </td></tr>
+</table>
+</td>
+
+</tr>
+</table>
+
+### Pictures Schema
+
+<table>
+<tr>
+
+<td>
+<table>
+<tr><th> albums </th></tr>
+<tr><td> ID <b>PK</b> </td></tr>
+<tr><td> ownerID </td><b>FK</b></tr>
+<tr><td> description </td></tr>
+<tr><td> time_created </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> photos </th></tr>
+<tr><td> ID <b>PK</b> </td></tr>
+<tr><td> albumID <b>FK</b> </td></tr>
+<tr><td> caption </td></tr>
+<tr><td> location </td></tr>
+<tr><td> time_taken </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> users </th></tr>
+<tr><td> ID <b>PK</b> </td></tr>
+<tr><td> name </td></tr>
+<tr><td> location </td></tr>
+</table>
+</td>
+
+</tr>
+</table>
+
 # 6: Ambient Intelligence
 
 Last summer, I went to Italy and had to ride a lot of trains.  I'm going to describe a higher-tech ticketing system than the one they currently have, in the same train stations that I visited.
