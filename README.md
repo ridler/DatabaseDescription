@@ -302,6 +302,7 @@ GROUP BY product
 		<inputText></inputText>
 		<inputPhoto></inputPhoto>
 	</newPost>
+	<totalPosts></totalPosts>
 	<posts>
 		<post>
 			<time></time>
@@ -339,29 +340,26 @@ GROUP BY product
 
 ## RDF Triples / Assertions
 
-a post by mileyc should be tagged by mileyc
-`www.myface.com/mileyc/posts/1432324 <taggedBy> www.myface.com/mileyc`
-
-one of baracko's suggested friends should be taggr
-`www.myface.com/baracko <suggestedFriends> www.myface.com/taggr`
-
-any profile's home route should be the home page
-`www.myface.com/profile/ <home> www.myface.com`
-
-a new post's time should be the current time when it is created
-`www.myface.com/lanar/posts/new <time> www.time.com/now`
-
-a new post's location should be the location of the person who owns the post
-`www.myface.com/kanyew/posts/new <location> www.kanyewest.com/mycurrentlocation`
-
-taggr's profile photo shouuld be a photo he owns and in his 'profile' route
-`www.myface.com/taggr <profilePhoto> www.myface.com/taggr/photos/profile`
-
-the name on someone's profile should match their actual identity
-`www.myface.com/mileyc <name> www.openid.com/9023841`
-
-the input photo for a new post should come from someone's hard drive
-`www.myface.com/lanar/posts/new <inputPhoto> C:\Users\LanaDelRey\Photos\`
+- a post by mileyc should be tagged by mileyc 
+	- `www.myface.com/mileyc/posts/1432324 <taggedBy> www.myface.com/mileyc`
+- one of baracko's suggested friends should be taggr
+	- `www.myface.com/baracko <suggestedFriends> www.myface.com/taggr`
+- any profile's home route should be the home page
+	- `www.myface.com/profile/ <home> www.myface.com`
+- a new post's time should be the current time when it is created
+	- `www.myface.com/lanar/posts/new <time> www.time.com/now`
+- a new post's location should be the location of the person who owns the post
+	- `www.myface.com/kanyew/posts/new <location> www.kanyewest.com/mycurrentlocation`
+- taggr's profile photo shouuld be a photo he owns and in his 'profile' route
+	- `www.myface.com/taggr <profilePhoto> www.myface.com/taggr/photos/profile`
+- the name on someone's profile should match their actual identity
+	- `www.myface.com/mileyc <name> www.openid.com/9023841`
+- the input photo for a new post should come from someone's hard drive
+	- `www.myface.com/lanar/posts/new <inputPhoto> C:\Users\LanaDelRey\Photos\`
+- taggr's friends should include mileyc
+	- `www.myface.com/taggr <friends> www.myface.com/mileyc`
+- the number of posts someone has made should be an integer representing their total number of posts
+	- `www.myface.com/mileyc <totalPosts> www.metrics.com/myface/posts/mileyc`
 
 # 5: Distributed Databases
 
