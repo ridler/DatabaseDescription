@@ -140,25 +140,40 @@ CREATE COLUMNFAMILY StatusUpdates (
 
 ## Relational Schema
 
-| users |
-|-------|
-| userID **PK** |
-| name |
-| email |
-| password |
-| location |
-| time_created |
+<table>
+<tr>
 
-| friends |
-|---------|
-| userID **PK FK** |
-| friendID **PK FK** |
+<td>
+<table>
+<tr><th> users </th></tr>
+<tr><td> userID <b>PK</b> </td></tr>
+<tr><td> name </td></tr>
+<tr><td> email </td></tr>
+<tr><td> password </td></tr>
+<tr><td> location</td></tr>
+<tr><td> time </td></tr>
+</table>
+</td>
 
-| posts |
-|-------|
-| userID **PK FK** |
-| body |
-| time |
+<td>
+<table>
+<tr><th> friends </th></tr>
+<tr><td> userID <b>PK</b> </td></tr>
+<tr><td> friendID <b>PK FK</b> </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> pages </th></tr>
+<tr><td> pageID <b>PK</b> </td></tr>
+<tr><td> name </td></tr>
+<tr><td> time </td></tr>
+</table>
+</td>
+
+</tr>
+</table>
 
 - Functional Dependencies:
 - Multivalued Dependencies:
@@ -231,7 +246,7 @@ INSERT INTO friends VALUES (1,
 </table>
 </td>
 
-</td></tr>
+</tr>
 </table>
 
 ![](img/starSchema.PNG)
