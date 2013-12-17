@@ -288,6 +288,81 @@ GROUP BY product
 
 # 4: Assertions and Inferences
 
+## Modified XML Language:
+
+``` xml
+<?xml version="1.0"?>
+<profile>
+	<home></home>
+	<name></name>
+	<profilePhoto></profilePhoto>
+	<newPost>
+		<source></source>
+		<tagBox></tagBox>
+		<inputText></inputText>
+		<inputPhoto></inputPhoto>
+	</newPost>
+	<posts>
+		<post>
+			<time></time>
+			<location></location>
+			<tags>
+				<tag>
+					<friendID></friendID>
+					<taggedBy>
+						<userID></userID>
+					</taggedBy>
+				</tag>
+			</tags>
+			<body>
+				<photo></photo>
+				<text></text>
+			</body>
+		</post>
+	</posts>
+	<friends>
+		<friend>
+			<name></name>
+			<profilePhoto></profilePhoto>
+			<link></link>
+		</friend>
+	</friends>
+	<suggestedFriends>
+		<source></source>
+		<inputFriends>
+			<friendID></friendID>
+		</inputFriends>
+		<userID></userID>
+	</suggestedFriends>
+</profile>
+```
+
+## RDF Triples / Assertions
+
+a post by mileyc should be tagged by mileyc
+`www.myface.com/mileyc/posts/1432324 <taggedBy> www.myface.com/mileyc`
+
+one of baracko's suggested friends should be taggr
+`www.myface.com/baracko <suggestedFriends> www.myface.com/taggr`
+
+any profile's home route should be the home page
+`www.myface.com/profile/ <home> www.myface.com`
+
+a new post's time should be the current time when it is created
+`www.myface.com/lanar/posts/new <time> www.time.com/now`
+
+a new post's location should be the location of the person who owns the post
+`www.myface.com/kanyew/posts/new <location> www.kanyewest.com/mycurrentlocation`
+
+taggr's profile photo shouuld be a photo he owns and in his 'profile' route
+`www.myface.com/taggr <profilePhoto> www.myface.com/taggr/photos/profile`
+
+the name on someone's profile should match their actual identity
+`www.myface.com/mileyc <name> www.openid.com/9023841`
+
+the input photo for a new post should come from someone's hard drive
+`www.myface.com/lanar/posts/new <inputPhoto> C:\Users\LanaDelRey\Photos\`
+
 # 5: Distributed Databases
 
 # 6: Ambient Intelligence
