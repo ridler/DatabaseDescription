@@ -493,6 +493,10 @@ GROUP BY product
 - Functional Dependencies: all values in each table are functionally determined by the primary key.
 - Multivalued Dependencies: none
 
+## New Schema built with Primitives
+
+![](largeSchema.PNG)
+
 # 6: Ambient Intelligence
 
 Last summer, I went to Italy and had to ride a lot of trains.  I'm going to describe a higher-tech ticketing system than the one they currently have, in the same train stations that I visited.
