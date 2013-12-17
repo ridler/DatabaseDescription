@@ -140,23 +140,25 @@ CREATE COLUMNFAMILY StatusUpdates (
 
 ## Relational Schema
 
-Table: users
+| users |
+|-------|
+| userID **PK** |
+| name |
+| email |
+| password |
+| location |
+| time_created |
 
-userID   | name        | email      | password     | location   |
----------|-------------|------------|--------------|------------|
-PK       |             |            |              |            |
+| friends |
+|---------|
+| userID **PK FK** |
+| friendID **PK FK** |
 
-Table: friends
-
-userID   | friendID |
----------|----------|
-PK FK    | PK FK    |
-
-Table: posts
-
-userID   | body     | time   |
----------|----------|--------|
-PK       |          |        |
+| posts |
+|-------|
+| userID **PK FK** |
+| body |
+| time |
 
 - Functional Dependencies:
 - Multivalued Dependencies:
@@ -180,9 +182,46 @@ INSERT INTO friends VALUES (1,
 	FROM users u JOIN posts p
 		ON u.userID = p.userID
 	WHERE u.location = "Santa Barbara, CA"
-	ORDERY BY p.time LIMIT 1
+	ORDER BY p.time LIMIT 1
 ));
 ```
+
+## Data Warehousing
+
+**New Schema to make this work** (I am adding a page table, in reference to facebook pages vs profiles)
+
+| users |
+|-------|
+| userID **PK** |
+| name |
+| email |
+| password |
+| location |
+| time|
+
+| friends |
+|---------|
+| userID **PK FK** |
+| friendID **PK FK** |
+
+| posts |
+|-------|
+| userID **PK FK** |
+| body |
+| time |
+
+| pages |
+|-------|
+| pageID **PK** |
+| time |
+| name |
+| location |
+
+![](img/starSchema.PNG)
+
+# 4: Assertions and Inferences
+
+# 5: Distributed Databases
 
 # 6: Ambient Intelligence
 
