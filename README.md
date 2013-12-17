@@ -19,6 +19,7 @@
 ![](img/status_updates.PNG)
 
 ## CQL queries
+
 ``` SQL
 INSERT INTO users (name, password, location)
 VALUES ("Lana Del Rey", "tropico", "Cony Island, NY")
@@ -347,19 +348,25 @@ GROUP BY product
 - any profile's home route should be the home page
 	- `www.myface.com/profile/ <home> www.myface.com`
 - a new post's time should be the current time when it is created
-	- `www.myface.com/lanar/posts/new <time> www.time.com/now`
+	- `www.myface.com/lanar/posts/new <time> 1/1/2014`
 - a new post's location should be the location of the person who owns the post
-	- `www.myface.com/kanyew/posts/new <location> www.kanyewest.com/mycurrentlocation`
+	- `www.myface.com/kanyew/posts/new <location> Chicago, IL`
 - taggr's profile photo shouuld be a photo he owns and in his 'profile' route
 	- `www.myface.com/taggr <profilePhoto> www.myface.com/taggr/photos/profile`
 - the name on someone's profile should match their actual identity
-	- `www.myface.com/mileyc <name> www.openid.com/9023841`
+	- `www.myface.com/mileyc <name> Miley Cyrus`
 - the input photo for a new post should come from someone's hard drive
 	- `www.myface.com/lanar/posts/new <inputPhoto> C:\Users\LanaDelRey\Photos\`
 - taggr's friends should include mileyc
 	- `www.myface.com/taggr <friends> www.myface.com/mileyc`
 - the number of posts someone has made should be an integer representing their total number of posts
 	- `www.myface.com/mileyc <totalPosts> www.metrics.com/myface/posts/mileyc`
+
+## Inferences
+
+- All of the left values in the triples are a route in the app, while all the right values are either a string, local file, or a different route within the app.  Thus I can infer that many of the data elements in profiles do not rely on outside web services.
+- All of the right values that relate to documents saved to the database are routes within the app.  Thus I can infer that many of the documents that make up a profile are contained in the app's document database.
+	- A photo that is part of a new post that hasn't been saved yet is a file on someone's hard drive, but a profile 	photo that has already been saved as a profile document has a route contained with in the app's domain.
 
 # 5: Distributed Databases
 
