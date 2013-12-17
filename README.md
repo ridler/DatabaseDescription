@@ -176,8 +176,8 @@ CREATE COLUMNFAMILY StatusUpdates (
 </tr>
 </table>
 
-- Functional Dependencies:
-- Multivalued Dependencies:
+- Functional Dependencies: all values in each table are functionally determined by the primary key.
+- Multivalued Dependencies: the friends table.  The presence of a row (userID, friendID) requires another row (userID, friendID) that is the reverse of the first row.
 
 ## OLTP Queries
 
@@ -409,7 +409,10 @@ GROUP BY product
 </tr>
 </table>
 
-### Pictures Schema
+- Functional Dependencies: all values in each table are functionally determined by the primary key.
+- Multivalued Dependencies: the friends table.  The presence of a row (userID, friendID) requires another row (userID, friendID) that is the reverse of the first row.
+
+### Pictures App Schema (like Instagram)
 
 <table>
 <tr>
@@ -418,7 +421,7 @@ GROUP BY product
 <table>
 <tr><th> albums </th></tr>
 <tr><td> ID <b>PK</b> </td></tr>
-<tr><td> ownerID </td><b>FK</b></tr>
+<tr><td> ownerID <b>FK</b> </td></tr>
 <tr><td> description </td></tr>
 <tr><td> time_created </td></tr>
 </table>
@@ -430,7 +433,7 @@ GROUP BY product
 <tr><td> ID <b>PK</b> </td></tr>
 <tr><td> albumID <b>FK</b> </td></tr>
 <tr><td> caption </td></tr>
-<tr><td> location </td></tr>
+<tr><td> photo_location </td></tr>
 <tr><td> time_taken </td></tr>
 </table>
 </td>
@@ -440,12 +443,55 @@ GROUP BY product
 <tr><th> users </th></tr>
 <tr><td> ID <b>PK</b> </td></tr>
 <tr><td> name </td></tr>
-<tr><td> location </td></tr>
 </table>
 </td>
 
 </tr>
 </table>
+
+- Functional Dependencies: all values in each table are functionally determined by the primary key.
+- Multivalued Dependencies: none
+
+### Q&A App Schema
+
+<table>
+<tr>
+
+<td>
+<table>
+<tr><th> answers </th></tr>
+<tr><td> ID <b>PK</b> </td></tr>
+<tr><td> questionID <b>FK</b> </td></tr>
+<tr><td> answererID <b>FK</b> </td></tr>
+<tr><td> answer_text </td></tr>
+<tr><td> time_answered </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> questions </th></tr>
+<tr><td> ID <b>PK</b> </td></tr>
+<tr><td> askerID <b>FK</b> </td></tr>
+<tr><td> question_text </td></tr>
+<tr><td> category </td></tr>
+<tr><td> time_asked </td></tr>
+</table>
+</td>
+
+<td>
+<table>
+<tr><th> users </th></tr>
+<tr><td> ID <b>PK</b> </td></tr>
+<tr><td> points </td></tr>
+</table>
+</td>
+
+</tr>
+</table>
+
+- Functional Dependencies: all values in each table are functionally determined by the primary key.
+- Multivalued Dependencies: none
 
 # 6: Ambient Intelligence
 
