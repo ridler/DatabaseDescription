@@ -165,9 +165,9 @@ CREATE COLUMNFAMILY StatusUpdates (
 
 <td>
 <table>
-<tr><th> pages </th></tr>
-<tr><td> pageID <b>PK</b> </td></tr>
-<tr><td> name </td></tr>
+<tr><th> posts </th></tr>
+<tr><td> userID <b>PK FK</b> </td></tr>
+<tr><td> body </td></tr>
 <tr><td> time </td></tr>
 </table>
 </td>
