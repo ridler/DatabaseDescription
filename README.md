@@ -495,7 +495,7 @@ GROUP BY product
 
 ## New Schema built with Primitives
 
-![](largeSchema.PNG)
+![](img/largeSchema.PNG)
 
 # 6: Ambient Intelligence
 
